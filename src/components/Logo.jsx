@@ -1,5 +1,5 @@
-const LOGO_FULL = "/brand/jk-logo-mark.svg"
-const LOGO_MONOGRAM = "/brand/jk-logo-monogram.svg"
+const LOGO_FULL = `${import.meta.env.BASE_URL}brand/jk-logo-mark.svg`
+const LOGO_MONOGRAM = `${import.meta.env.BASE_URL}brand/jk-logo-monogram.svg`
 
 export function JKMark({ size = 60, className = "" }) {
   return (

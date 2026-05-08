@@ -1,4 +1,4 @@
-const DRA_IMG = "/dra-ketlyn-rodrigues.png"
+const DRA_IMG = `${import.meta.env.BASE_URL}dra-ketlyn-rodrigues.png`
 
 export default function Founder() {
   return (

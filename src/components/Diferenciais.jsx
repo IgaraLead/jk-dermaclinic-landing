@@ -26,7 +26,7 @@ const comparacao = [
   },
 ]
 
-const BG_URL = "/dra-ketlyn-rodrigues.png"
+const BG_URL = `${import.meta.env.BASE_URL}dra-ketlyn-rodrigues.png`
 const PARALLAX_PX = 0.1
 
 function useDiferenciaisParallax() {
