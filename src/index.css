@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  /* Paleta JK Dermaclinic */
+  --color-primary-50: #e7ebf2;
+  --color-primary-100: #d1d9e8;
+  --color-primary-200: #adbcd4;
+  --color-primary-300: #8498b7;
+  --color-primary-400: #5e7498;
+  --color-primary-500: #3e557a;
+  --color-primary-600: #2c4164;
+  --color-primary-700: #1f3251;
+  --color-primary-800: #162742;
+  --color-primary-900: #0f1c2e;
+
+  --color-accent-50: #f5efe4;
+  --color-accent-100: #ebdec6;
+  --color-accent-200: #dec89f;
+  --color-accent-300: #d1b379;
+  --color-accent-400: #c8ab70;
+  --color-accent-500: #c2a36a;
+  --color-accent-600: #ab8e5a;
+  --color-accent-700: #8f7549;
+
+  --color-neutral-50: #ffffff;
+  --color-neutral-100: #f4f1ec;
+  --color-neutral-200: #e8e0d5;
+  --color-neutral-300: #d8cdc0;
+  --color-neutral-400: #bfb3a4;
+  --color-neutral-500: #e8e0d5;
+  --color-neutral-600: #d1c6b9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #0f1c2e;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: color-mix(in srgb, var(--glass-card-bg, #0f1c2e) 50%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(232, 224, 213, 0.2);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(232, 224, 213, 0.26),
+      inset 0 0 4px 2px rgba(15, 28, 46, 0.28);
+    position: relative;
+    overflow: clip;
+  }
+
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232, 224, 213, 0.35), transparent);
+  }
+
+  .glass-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(232, 224, 213, 0.28), transparent, rgba(15, 28, 46, 0.35));
+  }
+
+  .glass-btn {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glass-btn:hover {
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 6px 3px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .glass-btn-primary {
+    background: linear-gradient(135deg, rgba(15, 28, 46, 0.95), rgba(30, 47, 70, 0.92));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+      0 4px 16px rgba(15, 28, 46, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 0 4px 2px rgba(255, 255, 255, 0.1);
+    color: #e8e0d5;
+    transition: all 0.3s ease;
+  }
+
+  .glass-btn-primary:hover {
+    background: linear-gradient(135deg, #0f1c2e 0%, #1a2d46 100%);
+    box-shadow:
+      0 6px 24px rgba(15, 28, 46, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 0 6px 3px rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .glass-nav {
+    background: rgba(15, 28, 46, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232, 224, 213, 0.18);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(232, 224, 213, 0.18);
+  }
+
+  .glass-input {
+    background: rgba(15, 28, 46, 0.52);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(232, 224, 213, 0.24);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.14),
+      inset 0 1px 0 rgba(232, 224, 213, 0.2),
+      inset 0 0 4px 2px rgba(15, 28, 46, 0.22);
+    transition: all 0.3s ease;
+  }
+
+  .glass-input:focus {
+    background: rgba(15, 28, 46, 0.64);
+    border-color: rgba(194, 163, 106, 0.55);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(232, 224, 213, 0.25),
+      inset 0 0 4px 2px rgba(15, 28, 46, 0.25),
+      0 0 0 3px rgba(194, 163, 106, 0.18);
+    outline: none;
+  }
+
+  .section-wellness-reset {
+    position: relative;
+    isolation: isolate;
+    --wr-bg: #0f1c2e;
+  }
+
+  .section-wellness-reset .wr-parallax-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .section-wellness-reset .wr-parallax-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10%;
+    height: 120%;
+    min-height: 560px;
+    transform: translate3d(0, var(--wr-parallax-y, 0px), 0);
+    will-change: transform;
+  }
+
+  .section-wellness-reset .wr-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+    filter: blur(14px);
+    transform: scale(1.08);
+    transform-origin: 50% 50%;
+  }
+
+  .section-wellness-reset .wr-overlay {
+    z-index: 1;
+    background: rgba(15, 28, 46, 0.25);
+  }
+
+  .section-diferenciais {
+    --jk-bg: #0f1c2e;
+    --jk-text: #e8e0d5;
+    --jk-surface: #16253a;
+    --glass-card-bg: color-mix(in srgb, var(--jk-surface) 78%, #0f1c2e 22%);
+    position: relative;
+    isolation: isolate;
+    background: var(--jk-bg);
+    color: var(--jk-text);
+  }
+
+  .section-diferenciais .jk-parallax-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .section-diferenciais .jk-parallax-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -18%;
+    height: 128%;
+    min-height: 600px;
+    transform: translate3d(0, var(--jk-parallax-y, 0px), 0);
+    will-change: transform;
+  }
+
+  .section-diferenciais .jk-section-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+
+  /* Foto da Dra. desfocada: scale compensa bordas do filter: blur */
+  .section-diferenciais .jk-dra-bg {
+    filter: blur(22px);
+    transform: scale(1.12);
+    transform-origin: 50% 25%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-diferenciais .jk-dra-bg {
+      filter: blur(18px);
+    }
+  }
+
+  .section-diferenciais .jk-degrade {
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(15, 28, 46, 0.74) 0%, rgba(15, 28, 46, 0.88) 50%, #0f1c2e 100%),
+      radial-gradient(ellipse 90% 70% at 50% 30%, rgba(15, 28, 46, 0.32) 0%, rgba(15, 28, 46, 0.62) 100%);
+    opacity: 0.85;
+  }
+
+  .section-diferenciais
+    :is(
+      .jk-title,
+      .jk-title-line,
+      .jk-h3,
+      .jk-narr,
+      .jk-body,
+      .jk-r,
+      .jk-label,
+      .jk-value,
+      .jk-callout,
+      .jk-sol-title,
+      .jk-compare-line,
+      .jk-compare-label,
+      .jk-sol,
+      .jk-body-strong,
+      .jk-em
+    ) {
+    color: var(--jk-text);
+  }
+
+  .section-diferenciais .jk-title-line {
+    -webkit-text-fill-color: var(--jk-text);
+    color: var(--jk-text);
+    background: none;
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+  }
+
+  .section-diferenciais .jk-title-impact {
+    color: var(--color-accent-500);
+    -webkit-text-fill-color: var(--color-accent-500);
+    text-shadow:
+      0 0 8px rgba(194, 163, 106, 0.35),
+      0 0 20px rgba(194, 163, 106, 0.22),
+      0 0 36px rgba(194, 163, 106, 0.14);
+  }
+
+  .section-diferenciais .jk-bullet {
+    background-color: var(--jk-text);
+  }
+
+  .section-diferenciais .jk-card-highlight {
+    background: var(--jk-surface);
+  }
+
+  .section-diferenciais .jk-pill {
+    background: #1b2c42;
+  }
+
+  .section-diferenciais .jk-compare-pos {
+    background: var(--jk-surface);
+  }
+
+  .section-diferenciais .jk-glow-title {
+    text-shadow:
+      0 0 6px rgba(232, 224, 213, 0.18),
+      0 0 18px rgba(232, 224, 213, 0.12),
+      0 0 32px rgba(232, 224, 213, 0.08);
+    animation: jk-glow-breathe 4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-diferenciais .jk-glow-title {
+      animation: none;
+    }
+  }
+}
+
+@keyframes jk-glow-breathe {
+  0%,
+  100% {
+    text-shadow:
+      0 0 5px rgba(232, 224, 213, 0.24),
+      0 0 16px rgba(232, 224, 213, 0.12),
+      0 0 32px rgba(232, 224, 213, 0.06);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(232, 224, 213, 0.35),
+      0 0 26px rgba(232, 224, 213, 0.2),
+      0 0 48px rgba(232, 224, 213, 0.12);
+  }
+}
